@@ -18,7 +18,6 @@ export default async function generateResourceFileWithMetadata(url: string) {
 	
 	
 		const titleWithoutSpecialCharacters = removeSpecialCharacters(title)
-		console.log(titleWithoutSpecialCharacters, title)
 		
 		// make resource folder
 		makeResourceFolder(titleWithoutSpecialCharacters)

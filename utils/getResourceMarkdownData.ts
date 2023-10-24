@@ -15,7 +15,6 @@ export default function getResourceMarkdownData(args: Props) {
 	let { banner, title } = args
 	const type = isVideo(banner || '') ? 'video' : 'article'
 	const titleWithoutSpecialCharacters = removeSpecialCharacters(title).toLocaleLowerCase()
-
 	
 	args.type = type
 	args.banner = banner ? path.join('.', 'img', `${titleWithoutSpecialCharacters}${path.extname(banner)}`) : ''
