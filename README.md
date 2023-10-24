@@ -9,7 +9,7 @@
 ## Installation
 
 ```sh
-- npm i @TODO
+- npm i https://github.com/pgabriel02/resource-importer
 - import generateResourceFileWithMetadata from 'resource-importer';
 - use generateResourceFileWithMetadata(url)
 ```
