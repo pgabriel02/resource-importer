@@ -2,7 +2,7 @@
 
 ## Features
 
-- Takes the meta from the given link and automatically generates a .md file in the appropriate format for resources.dev
+- Takes the meta from the given link and automatically generates a .md file in the appropriate format for resurse.dev
 
 
 
