@@ -13,3 +13,13 @@
 - import generateResourceFileWithMetadata from 'resource-importer';
 - use generateResourceFileWithMetadata(url)
 ```
+
+## What returns
+
+### 🌟 title.md
+
+![title.md](https://i.imgur.com/nMFsb0A.png)
+
+### 🌟 image file
+
+![image file](https://imgur.com/4UwRIae.png)
