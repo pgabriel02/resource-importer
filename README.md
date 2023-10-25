@@ -11,7 +11,7 @@
 ```ts
 - npm i https://github.com/pgabriel02/resource-importer
 - import generateResourceFileWithMetadata from 'resource-importer';
-- use generateResourceFileWithMetadata(url)
+- use await generateResourceFileWithMetadata(url)
 ```
 
 ## What returns
@@ -19,7 +19,7 @@
 ```ts
 import generateResourceFileWithMetadata from 'resource-importer';
 
-generateResourceFileWithMetadata('https://www.youtube.com/watch?v=nzSsv9c_ynQ&t=7503s&ab_channel=ViorelMocanu')
+await generateResourceFileWithMetadata('https://www.youtube.com/watch?v=nzSsv9c_ynQ&t=7503s&ab_channel=ViorelMocanu')
 
 ```
 
