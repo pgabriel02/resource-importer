@@ -8,6 +8,7 @@ type Props = {
 	url: string;
 	banner: string;
 	type?: string;
+	[key: string]: string | undefined;
 }
 
 
@@ -17,12 +18,12 @@ export default function getResourceMarkdownData(args: Props) {
 	const titleWithoutSpecialCharacters = removeSpecialCharacters(title).toLocaleLowerCase()
 	
 	args.type = type
-	args.banner = banner ? path.join('.', 'img', `${titleWithoutSpecialCharacters}${path.extname(banner)}`) : ''
+	args.banner = banner ? `./img/${titleWithoutSpecialCharacters}${path.extname(banner)}` : ''
 
 	let currentMarkdownValue = commonMarkdownInfo
 
-	for(const key of Object.keys(args)) {
-		currentMarkdownValue = replaceMarkdownKeys(currentMarkdownValue, key, (args as Record<string, string>)[key] || '@TODO')
+	for(const key in args) {
+		currentMarkdownValue = replaceMarkdownKeys(currentMarkdownValue, key, args[key] || '@TODO')
 	}
 
 	return currentMarkdownValue
