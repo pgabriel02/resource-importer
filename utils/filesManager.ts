@@ -1,13 +1,17 @@
-import { mkdirSync, rmdirSync, writeFileSync } from "fs"
+import { existsSync, mkdirSync, rmSync, writeFileSync } from "fs"
 import path from "path"
 import { markdownDestination } from "../config"
 
 export function makeResourceFolder(title: string) {
-	mkdirSync(path.join(markdownDestination, title), { recursive: true })
+	const folderPath = path.join(markdownDestination, title)
+	if(existsSync(folderPath)) throw new Error('Resource already exists')
+	mkdirSync(folderPath, { recursive: true })
 }
 
 export function removeResourceFolder(title: string) {
-	rmdirSync(path.join(markdownDestination, title), { recursive: true })
+	const folderPath = path.join(markdownDestination, title)
+	if(!existsSync(folderPath)) throw new Error('Resource does not exists')
+	rmSync(folderPath, { recursive: true, force: true })
 }
 
 export function makeMarkdownFile(title: string, content: string) {
@@ -19,5 +23,7 @@ export function makeImgFolder(title: string) {
 }
 
 export function removeImgFolder(title: string) {
-	rmdirSync(path.join(markdownDestination, title, 'img'), { recursive: true })
+	const imgFolderPath = path.join(markdownDestination, title, 'img')
+	if(!existsSync(imgFolderPath)) throw new Error('Image folder does not exists')
+	rmSync(imgFolderPath, { recursive: true, force: true })
 }
