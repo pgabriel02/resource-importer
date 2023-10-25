@@ -27,7 +27,7 @@ export default async function generateResourceFileWithMetadata(url: string) {
 
 		if(banner) {
 			// download resource image and save it to the resource folder
-			downloadImage(banner || '', titleWithoutSpecialCharacters) // throws error if download fails and stops the script
+			downloadImage(banner, titleWithoutSpecialCharacters) // throws error if download fails and stops the script
 		}
 	
 		const markdownData = getResourceMarkdownData({ title, description: description || '', url: website, banner: banner || '' })
