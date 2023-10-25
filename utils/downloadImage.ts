@@ -5,7 +5,7 @@ import { markdownDestination } from '../config'
 import { makeImgFolder, removeImgFolder, removeResourceFolder } from './filesManager'
 
 
-export async function downloadImage(url: string, title: string) {
+export function downloadImage(url: string, title: string) {
 	const filePath = path.join(markdownDestination, title, 'img', `${title}${path.extname(url)}`)
 	makeImgFolder(title)
 
