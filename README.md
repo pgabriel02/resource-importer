@@ -25,7 +25,7 @@ generateResourceFileWithMetadata('https://www.youtube.com/watch?v=nzSsv9c_ynQ&t=
 
 ### 🌟 title.md
 
-![title.md](https://imgur.com/2Al7fbc.png)
+![title.md](https://imgur.com/MztmT11.png)
 
 ### 🌟 image file
 
