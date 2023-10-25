@@ -2,7 +2,10 @@ import { URL } from 'url'
 import slugify from 'slugify'
 
 export function removeSpecialCharacters(string: string) {
-	return slugify(string.trim(), { lower: true, replacement: '-', remove: /[*+~.()'"!:@,`/]/g  })
+	return slugify(string, {
+		lower: true,
+		replacement: '-',
+		remove: /([*+~.()'"!:@,`/])/gu  })
 }
 
 
