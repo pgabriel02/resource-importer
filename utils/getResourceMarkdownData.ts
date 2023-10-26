@@ -14,7 +14,7 @@ type Props = {
 
 export default function getResourceMarkdownData(args: Props) {
 	let { banner, title, url } = args
-	const type = isVideo(url || '') ? 'video' : 'article'
+	const type = isVideo(url) ? 'video' : 'article'
 	const titleWithoutSpecialCharacters = removeSpecialCharacters(title).toLocaleLowerCase()
 	
 	args.type = type
