@@ -11,11 +11,9 @@ export function downloadImage(url: string, title: string) {
 
 	request(url).pipe(createWriteStream(filePath)).on('ready', () => {
 		console.log('Image downloaded with successfully!')
-		return true;
 	}).on('error', (err) => {
 		console.log('Error downloading image', err)
 		removeResourceFolder(title)
 		removeImgFolder(title)
-		return false;
 	})
 }
