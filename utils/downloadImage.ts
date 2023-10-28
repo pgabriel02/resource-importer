@@ -1,19 +1,14 @@
-import request from 'request'
 import path from 'path'
 import { createWriteStream } from 'fs'
 import { markdownDestination } from '../config'
-import { makeImgFolder, removeImgFolder, removeResourceFolder } from './filesManager'
+import { makeImgFolder } from './filesManager'
+import axios from 'axios'
 
 
-export function downloadImage(url: string, title: string) {
+export async function downloadImage(url: string, title: string) {
 	const filePath = path.join(markdownDestination, title, 'img', `${title}${path.extname(url)}`)
 	makeImgFolder(title)
+	const response = await axios.get(url, { responseType: 'stream' })
 
-	request(url).pipe(createWriteStream(filePath)).on('ready', () => {
-		console.log('Image downloaded with successfully!')
-	}).on('error', (err) => {
-		console.log('Error downloading image', err)
-		removeResourceFolder(title)
-		removeImgFolder(title)
-	})
+	await response.data.pipe(createWriteStream(filePath))
 }
