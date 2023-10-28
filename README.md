@@ -1,27 +1,36 @@
-# Resource Manager for resurse.dev
+# Astro Resource Manager for Resurse.dev
 
 ## Features
 
-- Takes the meta from the given link and automatically generates a .md file in the appropriate format for resurse.dev
-
-
+-   Takes the meta from the link parameter and automatically generates an `.md` content file in the appropriate [format](https://github.com/ViorelMocanu/digital-resources/blob/main/src/content/config.ts) for [Resurse.dev](https://resurse.dev/).
 
 ## Installation
 
-```ts
-- npm i https://github.com/pgabriel02/resource-importer
-- import generateResourceFileWithMetadata from 'resource-importer';
-- use await generateResourceFileWithMetadata(url)
+```bash
+npm i https://github.com/pgabriel02/resource-importer
 ```
 
-## What returns
+Then import the helper function in your project:
 
-```ts
-import generateResourceFileWithMetadata from 'resource-importer';
+```typescript
+import generateResourceFileWithMetadata from 'resource-importer'
+```
+
+Then use it when appropriate:
+
+```typescript
+use await generateResourceFileWithMetadata(url);
+```
+
+## Example
+
+```typescript
+import generateResourceFileWithMetadata from 'resource-importer'
 
 await generateResourceFileWithMetadata('https://www.youtube.com/watch?v=nzSsv9c_ynQ&t=7503s&ab_channel=ViorelMocanu')
-
 ```
+
+Will output these files:
 
 ### 🌟 title.md
 

@@ -1,21 +1,95 @@
 {
-	"name": "resource-importer",
+	"name": "astro-resource-importer",
 	"version": "1.0.0",
-	"author": "resurse.dev",
-	"description": "Import resources from a URL",
+	"type": "module",
+	"author": {
+		"name": "Gabriel Petre",
+		"email": "petregabriel1407@gmail.com",
+		"url": "https://petregabriel.online/",
+		"github": "https://github.com/pgabriel02"
+	},
+	"description": "An utility function that downloads and imports an external website as a resource using only a URL parameter, designed for https://resurse.dev",
+	"keywords": [
+		"astro",
+		"astrolib",
+		"astro-component",
+		"astro-integration",
+		"astro-plugin",
+		"withastro",
+		"plugin",
+		"import",
+		"curl",
+		"downloader"
+	],
+	"homepage": "https://resurse.dev/",
+	"main": "index.ts",
+	"types": "./utils/types.ts",
 	"entrypoint": "index.ts",
+	"exports": {
+		".": "./index.ts"
+	},
+	"files": [
+		"./utils",
+		"index.ts"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/pgabriel02/resource-importer.git"
+	},
+	"bugs": "https://github.com/pgabriel02/astro-simpleanalytics-plugin/issues",
+	"license": "ISC",
+	"engines": {
+		"node": ">=18",
+		"pnpm": ">=8"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"private": false,
+	"scripts": {
+		"format": "prettier --check ./**/*.{html,css,js,cjs,ts,md,json,yml,yaml}",
+		"format:fix": "prettier --write ./**/*.{html,css,js,cjs,ts,md,json,yml,yaml}",
+		"lint": "eslint ./**/*.js ./**/*.ts",
+		"lint:fix": "eslint ./**/*.js ./**/*.ts --fix",
+		"prepare": "husky install",
+		"typecheck": "pnpm tsc --project tsconfig.json --noEmit --pretty",
+		"verify": "pnpm lint && pnpm typecheck && pnpm format",
+		"test": "pnpm verify",
+		"verify:fix": "pnpm lint:fix && pnpm typecheck && pnpm format:fix",
+		"release:patch": "pnpm --workspaces --git-tag-version false version patch && pnpm --git-tag-version false version patch",
+		"release:minor": "pnpm --workspaces --git-tag-version false version minor && pnpm --git-tag-version false version minor",
+		"release:major": "pnpm --workspaces --git-tag-version false version major && pnpm --git-tag-version false version major",
+		"release:publish": "pnpm --workspaces publish --access public",
+		"release:test": "pnpm run release --dry-run",
+		"release": "release-it --verbose",
+		"astro": "astro",
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview"
+	},
 	"dependencies": {
-		"axios": "^1.5.1",
-		"cheerio": "^1.0.0-rc.12",
+		"axios": "^1.6.0",
+		"cheerio": "1.0.0-rc.12",
 		"docx-extractor": "^1.1.5",
-		"fs": "^0.0.1-security",
+		"fs": "0.0.1-security",
 		"meta-fetcher": "^3.1.1",
 		"path": "^0.12.7",
 		"request": "^2.88.2",
 		"slugify": "^1.6.6"
 	},
 	"devDependencies": {
-		"@types/node": "^20.8.8",
-		"@types/request": "^2.48.11"
+		"@commitlint/cli": "^18.2.0",
+		"@commitlint/config-conventional": "^18.1.0",
+		"@types/node": "^20.8.9",
+		"@types/request": "^2.48.11",
+		"@typescript-eslint/eslint-plugin": "^6.9.0",
+		"@typescript-eslint/parser": "^6.9.0",
+		"eslint": "^8.52.0",
+		"eslint-plugin-astro": "^0.29.1",
+		"eslint-plugin-jsx-a11y": "^6.7.1",
+		"husky": "^8.0.3",
+		"prettier": "^3.0.3",
+		"typescript": "^5.2.2"
 	}
 }
