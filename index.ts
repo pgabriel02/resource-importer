@@ -1,4 +1,3 @@
-import generateResourceFileWithMetadata from "./utils/generateResourceFileWithMetadata";
-
+import generateResourceFileWithMetadata from './utils/generateResourceFileWithMetadata'
 
 export default generateResourceFileWithMetadata

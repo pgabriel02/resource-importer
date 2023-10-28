@@ -1,7 +1,6 @@
-import path from 'path'
+import * as path from 'path'
 
-export const markdownDestination = path.join(process.cwd(), 'src', 'content', 'resources')
-
+export const markdownDestination = path.join(process.cwd(), 'src', 'content', 'resources');
 
 export const commonMarkdownInfo = `---
 title: "renametitle",
@@ -15,14 +14,14 @@ authorURL: "@TODO",
 section: "@TODO"
 categories:
 - "@TODO"
-raiting: 100,
+rating: 100,
 price: 0,
 requiredTime: 0.1,
 type: "renametype",
-mandatory: true,
+mandatory: false,
 image:
 	imageUrl: "renamebanner"
 	imageAlt: "renametitle"
 tags:
 - "@TODO"
----`
+---`;

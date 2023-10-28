@@ -1,18 +1,76 @@
 {
 	"name": "resource-importer",
 	"version": "1.0.0",
-	"author": "resurse.dev",
-	"description": "Import resources from a URL",
-	"entrypoint": "index.ts",
+	"author": {
+		"name": "Gabriel Petre",
+		"email": "petregabriel1407@gmail.com",
+		"url": "https://petregabriel.online/",
+		"github": "https://github.com/pgabriel02"
+	},
+	"description": "An utility function that downloads and imports an external website as a resource using only a URL parameter, designed for https://resurse.dev",
+	"keywords": [
+		"astro",
+		"astrolib",
+		"astro-component",
+		"astro-integration",
+		"astro-plugin",
+		"withastro",
+		"plugin",
+		"import",
+		"curl",
+		"downloader",
+		"meta",
+		"metadata",
+		"markdown"
+	],
+	"homepage": "https://resurse.dev/",
+	"main": "dist/bundle",
+	"types": "dist/types/src/utils/index.d.ts",
+	"files": [
+		"/src/utils",
+		"/src/utils/index.ts"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/pgabriel02/resource-importer.git"
+	},
+	"bugs": "https://github.com/pgabriel02/resource-importer/issues",
+	"license": "ISC",
+	"engines": {
+		"node": ">=18",
+		"pnpm": ">=8"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"private": false,
+	"scripts": {
+		"buildPackage": "rollup -c"
+	},
 	"dependencies": {
 		"axios": "^1.6.0",
-		"fs": "^0.0.1-security",
 		"meta-fetcher": "^3.1.1",
 		"path": "^0.12.7",
 		"slugify": "^1.6.6"
 	},
 	"devDependencies": {
-		"@types/node": "^20.8.8",
-		"@types/request": "^2.48.11"
+		"@commitlint/cli": "^18.2.0",
+		"@commitlint/config-conventional": "^18.1.0",
+		"@rollup/plugin-commonjs": "^25.0.7",
+		"@rollup/plugin-json": "^6.0.1",
+		"@rollup/plugin-node-resolve": "^15.2.3",
+		"@rollup/plugin-typescript": "^11.1.5",
+		"@types/node": "^20.8.9",
+		"@types/request": "^2.48.11",
+		"@typescript-eslint/eslint-plugin": "^6.9.0",
+		"@typescript-eslint/parser": "^6.9.0",
+		"encoding": "^0.1.13",
+		"eslint": "^8.52.0",
+		"eslint-plugin-astro": "^0.29.1",
+		"eslint-plugin-jsx-a11y": "^6.7.1",
+		"husky": "^8.0.3",
+		"prettier": "^3.0.3",
+		"rollup": "^4.1.5",
+		"typescript": "^5.2.2"
 	}
 }
