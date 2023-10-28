@@ -1,5 +1,5 @@
 {
-	"name": "astro-resource-importer",
+	"name": "resource-importer",
 	"version": "1.0.0",
 	"type": "module",
 	"author": {
@@ -19,7 +19,10 @@
 		"plugin",
 		"import",
 		"curl",
-		"downloader"
+		"downloader",
+		"meta",
+		"metadata",
+		"markdown"
 	],
 	"homepage": "https://resurse.dev/",
 	"main": "index.ts",
@@ -36,7 +39,7 @@
 		"type": "git",
 		"url": "https://github.com/pgabriel02/resource-importer.git"
 	},
-	"bugs": "https://github.com/pgabriel02/astro-simpleanalytics-plugin/issues",
+	"bugs": "https://github.com/pgabriel02/resource-importer/issues",
 	"license": "ISC",
 	"engines": {
 		"node": ">=18",
@@ -60,8 +63,6 @@
 		"release:minor": "pnpm --workspaces --git-tag-version false version minor && pnpm --git-tag-version false version minor",
 		"release:major": "pnpm --workspaces --git-tag-version false version major && pnpm --git-tag-version false version major",
 		"release:publish": "pnpm --workspaces publish --access public",
-		"release:test": "pnpm run release --dry-run",
-		"release": "release-it --verbose",
 		"astro": "astro",
 		"dev": "astro dev",
 		"start": "astro dev",
