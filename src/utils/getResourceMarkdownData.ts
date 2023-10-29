@@ -1,5 +1,4 @@
 import { isVideo, removeSpecialCharacters, replaceMarkdownKeys } from './general';
-import { commonMarkdownInfo } from '../../config';
 import path from 'path';
 
 type Props = {
@@ -11,7 +10,7 @@ type Props = {
 	[key: string]: string | undefined;
 };
 
-export function getResourceMarkdownData(args: Props) {
+export function getResourceMarkdownData(markdownConfig: string, args: Props) {
 	let { banner, title, url } = args;
 	const type = isVideo(url) ? 'video' : 'article';
 	const titleWithoutSpecialCharacters = removeSpecialCharacters(title).toLocaleLowerCase();
@@ -19,7 +18,7 @@ export function getResourceMarkdownData(args: Props) {
 	args.type = type;
 	args.banner = banner ? `./img/${titleWithoutSpecialCharacters}${path.extname(banner)}` : '';
 
-	let currentMarkdownValue = commonMarkdownInfo;
+	let currentMarkdownValue = markdownConfig;
 
 	for (const key in args) {
 		currentMarkdownValue = replaceMarkdownKeys(currentMarkdownValue, key, args[key] || '@TODO');

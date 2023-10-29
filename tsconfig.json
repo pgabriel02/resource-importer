@@ -2,7 +2,7 @@
 	"compileOnSave": true,
 	"compilerOptions": {
 		"target": "ESNext",
-		"module": "ESNext",
+		"module": "ES2020",
 		"moduleResolution": "Node",
 		"resolveJsonModule": true,
 		"strictNullChecks": true,
