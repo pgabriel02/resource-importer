@@ -31,7 +31,7 @@ function parseMetadataConfig(obj: Record<string, any>, elementsToBeEdited: eleme
 }
 
 export function getMetadataConfig(config: Record<string, any>, elementsToBeEdited: elementsToBeEditedType): Record<string, any> {
-	if(Array.isArray(config)) {
+	if(_.isArray(config)) {
 		return config.map(obj => parseMetadataConfig(obj, elementsToBeEdited))
 	}
 	return parseMetadataConfig(config, elementsToBeEdited)
