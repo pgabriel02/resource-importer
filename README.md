@@ -23,6 +23,28 @@ use await generateResourceFileWithMetadata(url);
 ```
 
 ## Example
+### Example function
+
+```ts
+import { getCollection } from 'astro:content'
+import { generateResourceFileWithMetadata } from 'resource-importer'
+
+async function test() {
+	const config = await getCollection('resources')
+	await generateResourceFileWithMetadata({
+		url: 'https://www.youtube.com/watch?v=nm2wIUr5KNk',
+		contentKey: 'resources',
+		configData: config,
+		elementsToBeEdited: {
+			title: 'title',
+			url: 'url',
+			imageUrl: 'banner',
+			imageAlt: 'title'
+		}
+	})
+}
+test()
+```
 
 ```typescript
 import generateResourceFileWithMetadata from 'resource-importer'
