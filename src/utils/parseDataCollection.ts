@@ -5,7 +5,8 @@ function setDefaultItemValue(type: 'string' | 'number' | 'boolean' | 'bigint' | 
 	switch(type) {
 		case 'number': return 0;
 		case 'boolean': return true;
-		default: return "'@TODO'";
+		case 'string': return "'@TODO'";
+		default: throw new Error(`Type ${type} not supported`)
 	}
 }
 
