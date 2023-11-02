@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import { elementsToBeEditedType } from './generateResourceFileWithMetadata';
 
-function setDefaultItemValue(type: string | number | boolean) {
+function setDefaultItemValue(type: 'string' | 'number' | 'boolean' | 'bigint' | 'symbol' | 'undefined' | 'object' | 'function') {
 	switch(type) {
 		case 'number': return 0;
 		case 'boolean': return true;
