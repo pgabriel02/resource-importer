@@ -9,17 +9,17 @@ function setDefaultItemValue(type: string | number | boolean) {
 	}
 }
 
-function parseMetadataConfig(obj: Record<string, any>, elementsToBeEdited: elementsToBeEditedType): Record<string, any> {
+function parseMetadataConfig(obj: Record<string, any>, elementsToBeEdited: elementsToBeEditedType, tabCount: number): Record<string, any> {
 	const keysToBeEdited = Object.keys(elementsToBeEdited)
-
+	const tabs = getTabsString(tabCount)
 	_.forOwn(obj, (value, key) => {
 		if(_.isArray(value)) {
-			obj[key] = "\n\t- '@TODO'"
+			obj[key] = `\n${tabs}- '@TODO'`
 		} else if(_.isObject(value)) {
 			if(_.has(value, 'slug') && _.has(value, 'collection')) {
 				obj[key] = `'@TODO'`
 			} else {
-				obj[key] = getMetadataConfig(value, elementsToBeEdited)
+				obj[key] = getMetadataConfig(value, elementsToBeEdited, tabCount + 1)
 			}
 		} else if(keysToBeEdited.includes(key)) {
 			obj[key] = `'{{${elementsToBeEdited[key]}}}'`
@@ -30,25 +30,26 @@ function parseMetadataConfig(obj: Record<string, any>, elementsToBeEdited: eleme
 	return obj;
 }
 
-export function getMetadataConfig(config: Record<string, any>, elementsToBeEdited: elementsToBeEditedType): Record<string, any> {
+export function getMetadataConfig(config: Record<string, any>, elementsToBeEdited: elementsToBeEditedType, tabCount: number = 1): Record<string, any> {
 	if(_.isArray(config)) {
-		return config.map(obj => parseMetadataConfig(obj, elementsToBeEdited))
+		return config.map(obj => parseMetadataConfig(obj, elementsToBeEdited, tabCount))
 	}
-	return parseMetadataConfig(config, elementsToBeEdited)
+	return parseMetadataConfig(config, elementsToBeEdited, tabCount)
 }
 
 function getTabsString(count: number) {
 	return '\t'.repeat(count)
 }
 
-export function generateMetaDataConfigAsString(config: Record<string, any>, initialCount: number = 0) {
+export function generateMetaDataConfigAsString(config: Record<string, any>, tabCount: number = 0) {
 	let stringToReturn = ''
+	const tabs = getTabsString(tabCount)
 	for(const item in config) {
 		if(_.isObject(config[item])) {
-			stringToReturn += `${item}:\n`
-			stringToReturn += generateMetaDataConfigAsString(config[item], initialCount + 1)
+			stringToReturn += tabs + `${item}:\n`
+			stringToReturn += generateMetaDataConfigAsString(config[item], tabCount + 1)
 		} else {
-			stringToReturn += getTabsString(initialCount) + `${item}: ${config[item]}\n`
+			stringToReturn += tabs + `${item}: ${config[item]}\n`
 		}
 	}
 	return stringToReturn
