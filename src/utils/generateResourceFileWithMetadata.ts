@@ -64,7 +64,7 @@ export async function generateResourceFileWithMetadata({ url, contentKey, config
 			title,
 			description: description || '',
 			url: website,
-			banner: banner || '',
+			banner: canUploadImage ? banner || '' : '',
 		});
 
 		// make markdown file

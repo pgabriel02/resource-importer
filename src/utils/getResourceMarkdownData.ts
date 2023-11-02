@@ -1,4 +1,4 @@
-import { isVideo, removeSpecialCharacters, replaceMarkdownKeys } from './general';
+import { existsBannerInConfig, isVideo, removeSpecialCharacters, replaceMarkdownKeys } from './general';
 import path from 'path';
 
 type Props = {
@@ -16,7 +16,7 @@ export function getResourceMarkdownData(markdownConfig: string, args: Props) {
 	const titleWithoutSpecialCharacters = removeSpecialCharacters(title).toLocaleLowerCase();
 
 	args.type = type;
-	args.banner = banner ? `./img/${titleWithoutSpecialCharacters}${path.extname(banner)}` : '';
+	args.banner = banner ? `./img/${titleWithoutSpecialCharacters}${path.extname(banner)}` : '@TODO';
 
 	let currentMarkdownValue = markdownConfig;
 
