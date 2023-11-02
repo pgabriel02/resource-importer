@@ -25,6 +25,16 @@ function getConfig(config: configType) {
 	return config[0].data
 }
 
+/**
+ * 
+ * @param url Entity URL from which the information will be extracted
+ * @param contentKey Key that will be used to create the folder where the resource will be saved
+ * @param configData Config data that will be used to generate the markdown file
+ * @param elementsToBeEdited Elements that will be edited in the markdown file
+ * @returns A promise that resolves when the resource file is generated
+ */
+
+
 export async function generateResourceFileWithMetadata({ url, contentKey, configData, elementsToBeEdited }: Props): Promise<void> {
 	let titleWithoutSpecialCharacters: string = '', bannerUrl: string | undefined = '', contentPath: string = ''
 	try {
