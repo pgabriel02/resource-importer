@@ -17,7 +17,7 @@ function parseMetadataConfig(obj: Record<string, any>, elementsToBeEdited: eleme
 		if(_.isArray(value)) {
 			obj[key] = `\n${tabs}- '@TODO'`
 		} else if(_.isObject(value)) {
-			if(_.has(value, 'slug') && _.has(value, 'collection')) {
+			if(_.has(value, 'slug') && _.has(value, 'collection')) { // that means it is a reference
 				obj[key] = `'@TODO'`
 			} else {
 				obj[key] = getMetadataConfig(value, elementsToBeEdited, tabCount + 1)
