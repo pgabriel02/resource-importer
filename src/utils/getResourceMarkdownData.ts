@@ -1,4 +1,4 @@
-import { existsBannerInConfig, isVideo, removeSpecialCharacters, replaceMarkdownKeys } from './general';
+import { isVideo, removeSpecialCharacters, replaceMarkdownKeys } from './general';
 import path from 'path';
 
 type Props = {
