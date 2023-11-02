@@ -48,6 +48,7 @@
 		"buildPackage": "rollup -c"
 	},
 	"dependencies": {
+		"astro": "^3.4.0",
 		"axios": "^1.6.0",
 		"meta-fetcher": "^3.1.1",
 		"path": "^0.12.7",
@@ -60,6 +61,7 @@
 		"@rollup/plugin-json": "^6.0.1",
 		"@rollup/plugin-node-resolve": "^15.2.3",
 		"@rollup/plugin-typescript": "^11.1.5",
+		"@types/lodash": "^4.14.200",
 		"@types/node": "^20.8.9",
 		"@types/request": "^2.48.11",
 		"@typescript-eslint/eslint-plugin": "^6.9.0",
@@ -69,6 +71,7 @@
 		"eslint-plugin-astro": "^0.29.1",
 		"eslint-plugin-jsx-a11y": "^6.7.1",
 		"husky": "^8.0.3",
+		"lodash": "^4.17.21",
 		"prettier": "^3.0.3",
 		"rollup": "^4.1.5",
 		"typescript": "^5.2.2"
