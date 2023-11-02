@@ -21,7 +21,6 @@ function getConfig(config: configType) {
 	if(!config)	throw new Error('No config provided')
 	if(!_.isArray(config)) throw new Error('Config must be an array')
 	if(config.length === 0) throw new Error('Config must not be empty')
-	console.log(config[0])
 	return config[0].data
 }
 
