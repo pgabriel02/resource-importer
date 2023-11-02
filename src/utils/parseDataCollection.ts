@@ -14,10 +14,13 @@ function parseMetadataConfig(obj: Record<string, any>, elementsToBeEdited: eleme
 
 	_.forOwn(obj, (value, key) => {
 		if(_.isArray(value)) {
-			console.log('e array', key)
 			obj[key] = "\n\t- '@TODO'"
 		} else if(_.isObject(value)) {
-			obj[key] = getMetadataConfig(value, elementsToBeEdited)
+			if(_.has(value, 'slug') && _.has(value, 'collection')) {
+				obj[key] = `'@TODO'`
+			} else {
+				obj[key] = getMetadataConfig(value, elementsToBeEdited)
+			}
 		} else if(keysToBeEdited.includes(key)) {
 			obj[key] = `'{{${elementsToBeEdited[key]}}}'`
 		} else {
