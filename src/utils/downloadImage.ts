@@ -7,7 +7,9 @@ import path from 'path';
 export async function downloadImage (url: string, title: string, contentPath: string) {
 	const filePath = path.join(contentPath, 'img', `${title}${path.extname(url)}`);
 	makeImgFolder(contentPath);
+	
 	const { data } = await axios.get(url, { responseType: 'stream' });
+	if(!data) throw new Error('No data received for image');
 
 	await data.pipe(createWriteStream(filePath));
 };
